@@ -50,8 +50,8 @@ class Player:
         return valid_cards
 
     def play(self):
-        #print self.Deck.available
-        print '{0} playing.'.format(self.name)
+        #print (self.Deck.available)
+        print ('{0} playing.'.format(self.name))
         while not self.validCards():
             self.buyCard()
 
@@ -86,7 +86,7 @@ class Player:
 
     def buyCard(self):
         bought = self.Deck.buyCard()
-        print 'Bought card: ',bought
+        print ('Bought card: ',bought)
         suit = bought.keys()[0]
         number = bought[suit]
         if suit not in self.hand:
@@ -118,12 +118,12 @@ class Player:
 class HumanPlayer(Player):
 
     def play(self):
-        print 'Human playing'
+        print ('Human playing')
 
         while not self.validCards():
             raw_input("Buying a card...<enter>")
             self.buyCard()
-        print '\nValid cards: {0}'.format(self.getValidCards())
+        print ('\nValid cards: {0}'.format(self.getValidCards()))
         suit = number = ''
         while suit not in self.getValidCards():
             suit = raw_input("Choose the suit > ")

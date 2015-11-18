@@ -2,6 +2,7 @@
 import random
 import customdict
 
+
 class Deck:
     __version__ = '0.3.1'
     
@@ -16,13 +17,13 @@ class Deck:
         self._populate()
         self._putCardOnTable(self.available.randomPair(method='simple'))
         
-        print 'On the table: ',self.table
+        print ('On the table: ',self.table)
         #self.scaffold()
 
     def scaffold(self):
-        print 'Playing with the neutrals stuff'
+        print ('Playing with the neutrals stuff')
         rc = self._getStack({'neutral':'changecolor'})
-        print 'RC: ',rc
+        print ('RC: ',rc)
 
 
     def _populate(self):
@@ -113,20 +114,20 @@ class Deck:
 
     def playCard(self, card):
         self._putCardOnTable(card)
-        print 'Card played.\n\nOn the table: ',self.table,'\n'
+        print ('Card played.\nOn the table %s' % (self.table))
 
         #Probably not useful
         '''if self.check_special(card):
-            print 'SPECIAL CARD COMING THROUGH, MOVE, MOVE!'
+            print ('SPECIAL CARD COMING THROUGH, MOVE, MOVE!')
             for k,v in card.items():
                 suit = k
                 value = v
             if value == 'stop':
-                print 'dispatch_stop()'
+                print ('dispatch_stop()')
             elif value == 'reverse':
-                print 'dispatch_reverse()'
+                print ('dispatch_reverse()')
             else:
-                print 'Unrecognized special type'''
+                print ('Unrecognized special type)'''
         # End probably not useful
 
     def getRandomCard(self, stack):
@@ -261,7 +262,7 @@ class Deck:
             return True
         return False
     def check_neutral(self,card):
-        print 'CHECKING NEUTRAL '*5
+        print ('CHECKING NEUTRAL '*5)
         for k,v in card.items():
             suit = k
             value = v
@@ -269,4 +270,4 @@ class Deck:
 
 if __name__ == '__main__':
     deck = Deck()
-    print '-----\nAvailable:\n %s \n-----' % deck.available
+    print ('-----\nAvailable:\n %s \n-----' % deck.available)

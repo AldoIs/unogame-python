@@ -12,9 +12,7 @@ __version__ = '0.3.0'
 winner = None
 
 def doTurn():
-    print "\nHuman has {0} cards.\nAI has {1} cards\n".format(
-        utils.stack.count(Player1.hand),utils.stack.count(AIPlayer.hand))
-                                                                            
+    print ("\nHuman has %d cards.\nAI has %d cards\n"   % (utils.stack.count(Player1.hand),utils.stack.count(AIPlayer.hand)))                                                               
     raw_input('\nNew turn')
 
     playing_now = 0
@@ -25,7 +23,7 @@ def doTurn():
     if check_for_special():
         player_stack.reverse()
     elif check_for_neutral():
-        print 'FOUND NEUTRAL, DO WHAT?'
+        print ('FOUND NEUTRAL, DO WHAT?')
 
     player_stack[playing_now].play()
 
@@ -37,11 +35,11 @@ def check_for_special():
     return False
 
 def check_for_neutral():
-    print 'CHECKING NEUTRAL'
+    print ('CHECKING NEUTRAL')
 
 def hasWinner():
     if utils.stack.count(Player1.hand) == 0 or utils.stack.count(AIPlayer.hand) == 0:
-        print 'THE WINNER IS: ', getWinner()
+        print ('THE WINNER IS: ', getWinner())
         return True
     return False
 
